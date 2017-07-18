@@ -664,7 +664,7 @@ layer {
   bottom: "source_label"
   #bottom: "fc6"
   #bottom: "fc6_target"
-  loss_weight: -0.3 #best -0.3
+  loss_weight: 0.3 #best -0.3 if use adversarial; best 0.3 if not use adversarial
   top: "fc7_mmd_loss"
   loss_weight: 0.3 #best 0.3
   top: "label_mmd_loss"
