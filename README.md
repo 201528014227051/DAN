@@ -22,6 +22,10 @@ The [bvlc\_reference\_caffenet](http://dl.caffe.berkeleyvision.org/bvlc_referenc
 "./build/tools/caffe train -solver models/DAN/amazon_to_webcam/solver.prototxt -weights models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel"
 ```
 
+In `models/JAN`, we give example models based on Alexnet and Resnet to show how to transfer from `amazon` to `webcam`, according to "Deep Transfer Learning with Joint Adaptation Networks". The shell scripts to train JAN model are the same with the above command, except that the paths of `solver.prototxt` and pretrained `caffemodel` are different.
+
+As JAN uses the joint distribution of feature and softmax output which is randomized at the beginning of training, one should add `grl layer` before `JMMD Loss Layer` to increase the loss weight from zero gradually, as suggested in the `train_val.prototxt`. 
+
 Parameter Tuning
 ---------------
 In mmd-layer and jmmd-layer, parameter `loss_weight` can be tuned to give mmd loss different weights.
@@ -62,10 +66,10 @@ Citation
       biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/LongZ0J16},
       bibsource = {dblp computer science bibliography, http://dblp.org}
     }
-
-    @article{long2017domain,
-      title={Domain Adaptation with Randomized Multilinear Adversarial Networks},
-      author={Long, Mingsheng and Cao, Zhangjie and Wang, Jianmin and Jordan, Michael I},
-      journal={arXiv preprint arXiv:1705.10667},
-      year={2017}
+    
+    @article{long2016deep,
+      title={Deep transfer learning with joint adaptation networks},
+      author={Long, Mingsheng and Wang, Jianmin and Jordan, Michael I},
+      journal={arXiv preprint arXiv:1605.06636},
+      year={2016}
     }
