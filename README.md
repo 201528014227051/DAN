@@ -8,6 +8,7 @@ This is a caffe repository for transfer learning. We fork the repository with ve
 - Copy `grl layer` and `messenger.hpp` from repository [Caffe](https://github.com/ddtm/caffe/tree/grl).
 - Emit `SOLVER_ITER_CHANGE` message in `solver.cpp` when `iter_` changes.
 
+If you have any problem about this code, feel free to concact us with the following email: zhuhan10@gmail.com, longmingsheng@gmail.com, caozhangjie14@gmail.com, liushichen95@gmail.com
 Data Preparation
 ---------------
 In `data/office/*.txt`, we give the lists of three domains in [Office](https://cs.stanford.edu/~jhoffman/domainadapt/#datasets_code) dataset.
