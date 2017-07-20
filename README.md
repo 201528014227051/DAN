@@ -26,6 +26,8 @@ The [bvlc\_reference\_caffenet](http://dl.caffe.berkeleyvision.org/bvlc_referenc
 "./build/tools/caffe train -solver models/DAN/amazon_to_webcam/solver.prototxt -weights models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel"
 ```
 
+Resnet pre-trainded model is [here](https://github.com/KaimingHe/deep-residual-networks). We use resnet-50.
+
 In `models/JAN`, we give example models based on Alexnet and Resnet to show how to transfer from `amazon` to `webcam`, according to "Deep Transfer Learning with Joint Adaptation Networks". The shell scripts to train JAN model are the same with the above command, except that the paths of `solver.prototxt` and pretrained `caffemodel` are different.
 
 As JAN uses the joint distribution of feature and softmax output which is randomized at the beginning of training, one should add `grl layer` before `JMMD Loss Layer` to increase the loss weight from zero gradually, as suggested in the `train_val.prototxt`. 
