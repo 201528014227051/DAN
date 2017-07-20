@@ -11,6 +11,7 @@ This is a caffe repository for transfer learning. We fork the repository with ve
 Data Preparation
 ---------------
 In `data/office/*.txt`, we give the lists of three domains in [Office](https://cs.stanford.edu/~jhoffman/domainadapt/#datasets_code) dataset.
+We have published the Image-Clef dataset we use [here](https://drive.google.com/file/d/0B9kJH0-rJ2uRS3JILThaQXJhQlk/view?usp=sharing).
 
 Training Model
 ---------------
