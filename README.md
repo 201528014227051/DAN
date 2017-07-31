@@ -9,10 +9,10 @@ This is a caffe repository for transfer learning. We fork the repository with ve
 - Emit `SOLVER_ITER_CHANGE` message in `solver.cpp` when `iter_` changes.
 
 If you have any problem about this code, feel free to concact us with the following email:
-zhuhan10@gmail.com
-caozhangjie14@gmail.com
-liushichen95@gmail.com
-longmingsheng@gmail.com
+- zhuhan10@gmail.com
+- caozhangjie14@gmail.com
+- liushichen95@gmail.com
+- longmingsheng@gmail.com
 
 Data Preparation
 ---------------
@@ -77,7 +77,7 @@ Citation
       bibsource = {dblp computer science bibliography, http://dblp.org}
     }
     
-@inproceedings{DBLP:conf/icml/LongZ0J17,
+    @inproceedings{DBLP:conf/icml/LongZ0J17,
       author    = {Mingsheng Long and
                    Han Zhu and
                    Jianmin Wang and
@@ -92,4 +92,5 @@ Citation
       timestamp = {Tue, 25 Jul 2017 17:27:57 +0200},
       biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/LongZ0J17},
       bibsource = {dblp computer science bibliography, http://dblp.org}
-}
+    }
+
