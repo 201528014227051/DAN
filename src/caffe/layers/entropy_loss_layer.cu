@@ -98,7 +98,6 @@ void EntropyLossLayer<Dtype>::Backward_gpu(
                << " Layer cannot backpropagate to label inputs.";
   }
   const Dtype* bottom_data = bottom[0]->gpu_data();
-  const Dtype* bottom_label = bottom[1]->gpu_data();
   Dtype* bottom_diff = bottom[0]->mutable_gpu_diff();
   Dtype* log_data = normalized_bottom_data_.mutable_gpu_data();
   Dtype* count = normalized_bottom_data_.mutable_gpu_diff();
