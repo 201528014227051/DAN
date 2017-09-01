@@ -614,7 +614,6 @@ layer {
   name: "entropy_loss"
   type: "EntropyLoss"
   bottom: "entropy_grl"
-  bottom: "target_label"
   top: "entropy_loss"
   loss_weight: -0.1
   entropy_param {
