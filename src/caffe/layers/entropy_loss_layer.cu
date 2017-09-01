@@ -105,7 +105,7 @@ void EntropyLossLayer<Dtype>::Backward_gpu(
   
   if (propagate_down[0]) {
       EntropyDiff<Dtype><<<CAFFE_GET_BLOCKS(nthreads), 
-        CAFFE_CUDA_NUM_THREADS>>>(nthreads, bottom_data, log_data, bottom_label, 
+        CAFFE_CUDA_NUM_THREADS>>>(nthreads, bottom_data, log_data,
                 threshold_, data_num_, ignore_label_, label_num_, count, bottom_diff);
 
       Dtype count_num;
