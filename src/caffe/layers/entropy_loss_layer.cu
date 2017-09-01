@@ -70,7 +70,7 @@ __global__ void EntropyDiff(const int nthreads, const Dtype* data,
 
 template <typename Dtype>
 __global__ void EntropyDiff(const int nthreads, const Dtype* data, 
-        const Dtype* log_data, const Dtype* label, const Dtype threshold, 
+        const Dtype* log_data, const Dtype threshold, 
         const int data_num, const int ignore_label, const int label_num, 
         Dtype* count, Dtype* diff) {
   CUDA_KERNEL_LOOP(index, nthreads) {
