@@ -56,7 +56,12 @@ layer {
   }
   include: { phase: TEST }
 }
-
+layer {
+  name: "silence_target_label"
+  bottom: "target_label"
+  type: "Silence"
+  include: { phase: TRAIN }
+}
 # ---------------------------------------------------------- Data concatenation
 
 layer {
@@ -104,20 +109,9 @@ layer {
   top: "conv1"
 }
 layer {
-  name: "norm1"
-  type: "LRN"
-  bottom: "conv1"
-  top: "norm1"
-  lrn_param {
-    local_size: 5
-    alpha: 0.0001
-    beta: 0.75
-  }
-}
-layer {
   name: "pool1"
   type: "Pooling"
-  bottom: "norm1"
+  bottom: "conv1"
   top: "pool1"
   pooling_param {
     pool: MAX
@@ -126,9 +120,20 @@ layer {
   }
 }
 layer {
+  name: "norm1"
+  type: "LRN"
+  bottom: "pool1"
+  top: "norm1"
+  lrn_param {
+    local_size: 5
+    alpha: 0.0001
+    beta: 0.75
+  }
+}
+layer {
   name: "conv2"
   type: "Convolution"
-  bottom: "pool1"
+  bottom: "norm1"
   top: "conv2"
   param {
     lr_mult: 1
@@ -149,7 +154,7 @@ layer {
     }
     bias_filler {
       type: "constant"
-      value: 0.1
+      value: 1
     }
   }
 }
@@ -160,20 +165,9 @@ layer {
   top: "conv2"
 }
 layer {
-  name: "norm2"
-  type: "LRN"
-  bottom: "conv2"
-  top: "norm2"
-  lrn_param {
-    local_size: 5
-    alpha: 0.0001
-    beta: 0.75
-  }
-}
-layer {
   name: "pool2"
   type: "Pooling"
-  bottom: "norm2"
+  bottom: "conv2"
   top: "pool2"
   pooling_param {
     pool: MAX
@@ -182,9 +176,20 @@ layer {
   }
 }
 layer {
+  name: "norm2"
+  type: "LRN"
+  bottom: "pool2"
+  top: "norm2"
+  lrn_param {
+    local_size: 5
+    alpha: 0.0001
+    beta: 0.75
+  }
+}
+layer {
   name: "conv3"
   type: "Convolution"
-  bottom: "pool2"
+  bottom: "norm2"
   top: "conv3"
   param {
     lr_mult: 1
@@ -238,7 +243,7 @@ layer {
     }
     bias_filler {
       type: "constant"
-      value: 0.1
+      value: 1
     }
   }
 }
@@ -272,7 +277,7 @@ layer {
     }
     bias_filler {
       type: "constant"
-      value: 0.1
+      value: 1
     }
   }
 }
