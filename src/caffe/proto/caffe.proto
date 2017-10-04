@@ -372,10 +372,8 @@ message LayerParameter {
   optional EltwiseParameter eltwise_param = 110;
   optional ELUParameter elu_param = 140;
   optional EmbedParameter embed_param = 137;
-  optional EntropyParameter entropy_param = 148;
   optional ExpParameter exp_param = 111;
   optional FlattenParameter flatten_param = 135;
-  optional GradientScalerParameter gradient_scaler_param = 149;
   optional HDF5DataParameter hdf5_data_param = 112;
   optional HDF5OutputParameter hdf5_output_param = 113;
   optional HingeLossParameter hinge_loss_param = 114;
@@ -406,25 +404,6 @@ message LayerParameter {
   optional ThresholdParameter threshold_param = 128;
   optional TileParameter tile_param = 138;
   optional WindowDataParameter window_data_param = 129;
-  optional JMMDParameter jmmd_param = 150;
-}
-
-// Message that stores parameters used by JMMD layer
-message JMMDParameter {
-    optional uint32 kernel_num = 1 [default = 5];
-    optional float kernel_mul = 6[default = 2];
-    optional float label_kernel_mul = 4 [default = 2];
-    optional uint32 label_kernel_num = 5 [default = 5];
-    optional float sigma = 2[default = 0];
-    optional bool auto_sigma = 8 [default = false];
-    optional bool fix_gamma = 7 [default = false];
-    optional bool label_back_propagate = 9 [default = false];
-    enum LabelKernelMode {
-      ONE_OF_K_RBF = 0;
-      IDENTIFY = 1;
-      PROB_RBF = 2;
-    }
-    optional LabelKernelMode label_kernel_mode = 3 [default = IDENTIFY];
 }
 
 
@@ -740,13 +719,6 @@ message EmbedParameter {
 
 }
 
-// Message that stores parameters used by Entropy layer
-message EntropyParameter {
-    optional float threshold = 1 [default = 0.001];
-    optional uint32 ignore_label = 2[default = 999];
-    optional uint32 iterations_num = 3[default = 0];
-}
-
 // Message that stores parameters used by ExpLayer
 message ExpParameter {
   // ExpLayer computes outputs y = base ^ (shift + scale * x), for base > 0.
@@ -767,17 +739,6 @@ message FlattenParameter {
   // May be negative to index from the end (e.g., the default -1 for the last
   // axis).
   optional int32 end_axis = 2 [default = -1];
-}
-
-message GradientScalerParameter {
-  // GradientScalerLayer scales deltas according to the schedule:
-  // 2 * height / (1 + exp(-alpha * (iter / max_iter))) - height + lower_bound,
-  // where height = upper_bound - lower_bound
-  optional float lower_bound = 1 [default = 0.0];
-  optional float upper_bound = 2 [default = 1.0];
-  optional float alpha = 3 [default = 10.0];
-  optional float max_iter = 4 [default = 1];
-  optional uint32 threshold_iter = 5 [default = 0];
 }
 
 // Message that stores parameters used by HDF5DataLayer
