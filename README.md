@@ -9,7 +9,8 @@ If you have any problem about this code, feel free to concact us with the follow
 - zhuhan10@gmail.com
 - caozhangjie14@gmail.com
 - longmingsheng@gmail.com
-Change Note: We have removed the implementations of Residual Transfer Network (NIPS '16) and Joint Adaptation Network (ICML '17) to the Xlearn library.
+
+Change Note: We have removed the implementations of Residual Transfer Network (NIPS '16) and Joint Adaptation Network (ICML '17) to the [Xlearn](https://github.com/thuml/Xlearn) library, which is a library for deep transfer learning.
 
 Data Preparation
 ---------------
