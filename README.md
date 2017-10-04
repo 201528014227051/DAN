@@ -5,6 +5,8 @@ This is a caffe repository for deep adaptation network (DAN). We fork the reposi
 - Add `mmd layer` described in paper "Learning Transferable Features with Deep Adaptation Networks".
 - Emit `SOLVER_ITER_CHANGE` message in `solver.cpp` when `iter_` changes.
 
+The value of the mmd loss could be *negative* since we used the *linear-time unbiased estimate* of the mmd, which lends us an O(n) time cost but may cause negative mmd values for some mini-batch. This negative mmd value however will not influence the final classification performance. Please refer to our paper for the technical details.
+
 If you have any problem about this code, feel free to concact us with the following email:
 - zhuhan10@gmail.com
 - caozhangjie14@gmail.com
@@ -33,7 +35,7 @@ Resnet pre-trainded model is [here](https://github.com/KaimingHe/deep-residual-n
 
 Parameter Tuning
 ---------------
-In mmd-layer and jmmd-layer, parameter `loss_weight` can be tuned to give mmd/jmmd loss different weights.
+In mmd-layer and jmmd-layer, parameter `loss_weight` can be tuned to give mmd loss different weights.
 
 Citation
 ---------------
