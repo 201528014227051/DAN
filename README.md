@@ -8,7 +8,6 @@ This is a caffe repository for deep adaptation network (DAN). We fork the reposi
 If you have any problem about this code, feel free to concact us with the following email:
 - zhuhan10@gmail.com
 - caozhangjie14@gmail.com
-- liushichen95@gmail.com
 - longmingsheng@gmail.com
 
 Data Preparation
